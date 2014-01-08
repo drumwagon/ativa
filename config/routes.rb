@@ -4,9 +4,10 @@ Ativa::Application.routes.draw do
   root 'projects#index'
   resources :project 
     resources :subscriptions, only: [:create, :destroy]
-  end
+  
 
   get 'users/:id' => 'users#show', as: 'user'
+end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -62,4 +63,3 @@ Ativa::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
