@@ -4,10 +4,11 @@ class Post < ActiveRecord::Base
   belongs_to :user
   default_scope order('created_at DESC')
   before_save :set_defaults
+  attr_reader :length
 
   mount_uploader :attachment, ImageUploader
 
-  def snippet(length)
+  def snippet(length = 300)
     message.truncate length
   end
 
